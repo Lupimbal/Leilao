@@ -1,4 +1,4 @@
-Sistema de Leilões
+# Sistema de Leilões
 
 Este é o repositório do Sistema de Casa de Leilões, um software informatizado desenvolvido para modernizar e otimizar as rotinas de uma casa de leilões renomada.
 

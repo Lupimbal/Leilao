@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 
 public class ProdutosDAO {
-    
     Connection conn;
     PreparedStatement prep;
     ResultSet resultset;
@@ -26,8 +25,7 @@ public class ProdutosDAO {
         
         
         //conn = new conectaDAO().connectDB();
-        
-        
+        System.out.println("Produto cadastrado com sucesso");
     }
     
     public ArrayList<ProdutosDTO> listarProdutos(){

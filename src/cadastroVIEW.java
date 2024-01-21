@@ -142,7 +142,6 @@ public class cadastroVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        ProdutosDTO produto = new ProdutosDTO();
         String nome = cadastroNome.getText();
         String valor = cadastroValor.getText();
         String status = "A Venda";
@@ -150,13 +149,13 @@ public class cadastroVIEW extends javax.swing.JFrame {
         try {
             // Tente converter o valor para um inteiro
             int valorInt = Integer.parseInt(valor);
-            produto.setNome(nome);
-            produto.setValor(valorInt);
-            produto.setStatus(status);
+            ProdutosDTO produto = new ProdutosDTO(nome, valorInt, status);
 
             ProdutosDAO produtodao = new ProdutosDAO();
             produtodao.cadastrarProduto(produto);
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            cadastroNome.setText("");
+            cadastroValor.setText("");
         } catch (NumberFormatException e) {
             // Captura uma exceção se a conversão do valor para inteiro falhar
             // Exibe uma mensagem de erro ao usuário

@@ -8,6 +8,12 @@
  * @author Adm
  */
 public class ProdutosDTO {
+    public ProdutosDTO(String nome, Integer valor, String status) {
+        this.nome = nome;
+        this.valor = valor;
+        this.status = status;
+    }
+    
     private Integer id;
     private String nome;
     private Integer valor;

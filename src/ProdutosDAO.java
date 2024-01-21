@@ -10,31 +10,30 @@
 
 import java.sql.PreparedStatement;
 import java.sql.Connection;
-import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 public class ProdutosDAO {
     Connection conn;
     PreparedStatement prep;
     ResultSet resultset;
-    ArrayList<ProdutosDTO> listagem = new ArrayList<>();
+    static ArrayList<ProdutosDTO> listaProdutos = new ArrayList<>(Arrays.asList(
+            new ProdutosDTO("Produto A", 50, "Em Estoque"),
+            new ProdutosDTO("Produto B", 30, "Em Estoque"),
+            new ProdutosDTO("Produto C", 25, "Fora de Estoque"),
+            new ProdutosDTO("Produto D", 70, "Em Estoque")
+        ));
     
     public void cadastrarProduto (ProdutosDTO produto){
-        
-        
         //conn = new conectaDAO().connectDB();
+        ProdutosDAO.listaProdutos.add(produto);
         System.out.println("Produto cadastrado com sucesso");
     }
     
     public ArrayList<ProdutosDTO> listarProdutos(){
         
-        return listagem;
-    }
-    
-    
-    
-        
+        return ProdutosDAO.listaProdutos;
+    }    
 }
 

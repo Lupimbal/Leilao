@@ -34,12 +34,13 @@ public class ProdutosDAO {
     }
     
     public ArrayList<ProdutosDTO> listarProdutos(){
-        
         return ProdutosDAO.listaProdutos;
     }
     
     public ArrayList<ProdutosDTO> listarProdutosVendidos(){
-        return ProdutosDAO.listaProdutos;
+        return new ArrayList<>(listaProdutos.stream()
+                .filter(produto -> produto.getStatus().equals("Vendido"))
+                .collect(Collectors.toList()));
     }
 }
 
